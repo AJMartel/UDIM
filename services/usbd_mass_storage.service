@@ -1,0 +1,11 @@
+[Unit]
+Description=Starts USB device mass storage emulation
+After=mount_share.service
+Requires=mount_share.service
+
+[Service]
+Type=oneshot
+ExecStart=/sbin/modprobe g_multi
+
+[Install]
+WantedBy=multi-user.target

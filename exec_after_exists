@@ -1,0 +1,10 @@
+#!/bin/sh
+
+RC=1
+until [ $RC -eq 0 ]
+do
+	ping -w 1 $1 > /dev/null 2>$1 
+	RC=$?
+done
+
+$2

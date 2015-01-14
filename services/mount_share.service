@@ -1,0 +1,11 @@
+[Unit]
+Description=Mounts CIFS share on boot after network is up
+After=network.target
+Requires=network.target
+
+[Service]
+Type=forking
+ExecStart=/bin/exec_after_exists 192.168.5.20 "mount /store" &
+
+[Install]
+WantedBy=multi-user.target
